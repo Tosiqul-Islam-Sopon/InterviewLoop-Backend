@@ -2,6 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
+    FRONTEND_URL: str = "http://localhost:3000"
     APP_NAME: str
     DEBUG: bool = False
 

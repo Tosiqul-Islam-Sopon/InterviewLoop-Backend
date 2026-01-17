@@ -6,12 +6,21 @@ from app.api.v1.router import api_router
 from app.db.base import Base
 from app.db.session import engine
 from app.models import User  # ensures User is loaded
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)  # <-- creates tables
 
 app = FastAPI(
     title=settings.APP_NAME,
     debug=settings.DEBUG
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[settings.FRONTEND_URL],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # include routers
