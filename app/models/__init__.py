@@ -1,2 +1,11 @@
 from app.models.user import User
-# import other models as you create them
+from app.models.company import Company
+from app.models.interview_experience import InterviewExperience
+from app.models.job_role import JobRole
+from app.models.interview_type import InterviewType
+from app.models.interview_round import InterviewRound
+from app.models.comment import Comment
+from app.models.reaction import Reaction
+from app.models.tag import Tag
+from app.models.report import Report
+from app.models.refresh_token import RefreshToken

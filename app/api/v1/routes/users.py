@@ -8,7 +8,7 @@ from app.services import user_service as user_crud
 from app.core.auth import get_current_user
 from app.models.user import User
 
-router = APIRouter(prefix="/users", tags=["Users"])
+router = APIRouter()
 
 @router.post("/", response_model=UserRead, status_code=status.HTTP_201_CREATED)
 def create_user(user_in: UserCreate, db: Session = Depends(get_db)):

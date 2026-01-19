@@ -1,5 +1,5 @@
 from sqlalchemy import String, Boolean, DateTime, Enum
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime, timezone
 import enum
 
@@ -34,3 +34,4 @@ class User(Base):
         default=datetime.now(timezone.utc),
         onupdate=datetime.now(timezone.utc)
     )
+    interview_experiences = relationship("InterviewExperience", back_populates="user")

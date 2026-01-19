@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.security import HTTPBearer
 from app.core.config import settings
 from app.api.v1.router import api_router
 

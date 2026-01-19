@@ -7,7 +7,7 @@ from app.core.config import settings
 
 def create_access_token(subject: int, role: str) -> str:
     payload = {
-        "sub": subject,
+        "sub": str(subject),  # Convert to string
         "role": role,
         "iat": datetime.now(tz=timezone.utc),
         "exp": datetime.now(tz=timezone.utc)
@@ -23,7 +23,7 @@ def create_access_token(subject: int, role: str) -> str:
 
 def create_refresh_token(subject: int) -> str:
     payload = {
-        "sub": subject,
+        "sub": str(subject),  # Convert to string
         "iat": datetime.now(tz=timezone.utc),
         "exp": datetime.now(tz=timezone.utc)
         + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS),
