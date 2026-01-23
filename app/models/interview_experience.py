@@ -52,7 +52,6 @@ class InterviewExperience(Base, TimestampMixin):
     job_role = relationship("JobRole", back_populates="interview_experiences")
     interview_type = relationship("InterviewType", back_populates="interview_experiences")
 
-    rounds = relationship("InterviewRound", cascade="all, delete")
     comments = relationship("Comment", cascade="all, delete")
     reactions = relationship("Reaction", cascade="all, delete")
     tags = relationship("Tag", secondary="interview_tags", back_populates="interviews")
